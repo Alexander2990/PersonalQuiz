@@ -254,7 +254,7 @@
         <!--Результат-->
         <scene sceneID="FCy-BV-d4Y">
             <objects>
-                <viewController id="JOS-mc-wQC" sceneMemberID="viewController">
+                <viewController id="JOS-mc-wQC" customClass="ResultViewController" customModule="PersonalQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lc6-yw-gfW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
