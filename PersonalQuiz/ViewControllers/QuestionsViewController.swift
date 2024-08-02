@@ -13,16 +13,16 @@ final class QuestionsViewController: UIViewController {
     @IBOutlet private var questionLabel: UILabel!
     @IBOutlet private var questionProgressView: UIProgressView!
     
-    @IBOutlet var singleStackView: UIStackView!
-    @IBOutlet var singleButtons: [UIButton]!
+    @IBOutlet private var singleStackView: UIStackView!
+    @IBOutlet private var singleButtons: [UIButton]!
     
-    @IBOutlet var multipleStackView: UIStackView!
-    @IBOutlet var multipleLabels: [UILabel]!
-    @IBOutlet var multipleSwitches: [UISwitch]!
+    @IBOutlet private var multipleStackView: UIStackView!
+    @IBOutlet private var multipleLabels: [UILabel]!
+    @IBOutlet private var multipleSwitches: [UISwitch]!
     
-    @IBOutlet var rangedStackView: UIStackView!
-    @IBOutlet var rangedSlider: UISlider!
-    @IBOutlet var rangedLabels: [UILabel]!
+    @IBOutlet private var rangedStackView: UIStackView!
+    @IBOutlet private var rangedSlider: UISlider!
+    @IBOutlet private var rangedLabels: [UILabel]!
     
     // MARK: Private Properties
     private var questionIndex = 0
@@ -46,6 +46,13 @@ final class QuestionsViewController: UIViewController {
         }
     }
     
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let resultVC = segue.destination as? ResultViewController else { return }
+        resultVC.answerChosen = answerChosen
+        
+    }
+    
     // MARK: IB Actions
     @IBAction func singleAnswerButtonPressed(_ sender: UIButton) {
         guard let buttonIndex = singleButtons.firstIndex(of: sender) else { return }
@@ -60,7 +67,6 @@ final class QuestionsViewController: UIViewController {
                 answerChosen.append(answer)
             }
         }
-        
         nextQuestion()
     }
     
